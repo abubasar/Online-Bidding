@@ -1,0 +1,55 @@
+﻿
+@model OnlineBidding.Entity.Auction
+
+
+<h2>Edit</h2>
+
+<form id="editForm">
+    <div class="form-inline">
+        <label>Title</label>
+        <input name="Title" class="form-control" value="@Model.Title" />
+    </div>
+  
+    <div class="form-inline">
+        <label>PictureUrl</label>
+        <input name="PictureUrl" class="form-control" value="@Model.PictureUrl" />
+    </div>
+    <div class="form-inline">
+        <label>Description</label>
+        <input name="Description" class="form-control" value="@Model.Description" />
+    </div>
+  
+    <div class="form-inline">
+        <label>ActualAmount</label>
+        <input name="ActualAmount" class="form-control" value="@Model.ActualAmount" />
+    </div>
+  
+    <div class="form-inline">
+        <label>StartingTime</label>
+        <input name="StartingTime" class="form-control" value="@Model.StartingTime" />
+    </div>
+ 
+    <div class="form-inline">
+        <label>EndingTime</label>
+        <input name="EndingTime" class="form-control" value="@Model.EndingTime" />
+    </div>
+
+    <input type="hidden" name="ActionId" value="@Model.ActionId" />
+    <input type="button" class="btn btn-primary" id="updateBtn" value="Update" />
+</form>
+
+<script>
+    $("#updateBtn").click(function () {
+        $.ajax({
+            url: "/Auctions/Edit",
+            method: "post",
+            data: $("#editForm").serialize()
+
+
+        }).done(function (response) {
+            $("#tableDiv").html(response);
+            $("#auctionForm").html("");
+            });
+
+    });
+</script>

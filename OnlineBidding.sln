@@ -3,7 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBidding.Data", "OnlineBidding.Data\OnlineBidding.Data.csproj", "{53776362-2E7C-448B-8FD1-A2CDCA969C55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBidding.Entity", "OnlineBidding.Entity\OnlineBidding.Entity.csproj", "{101A86FA-902D-4CD8-BB5D-C34853A39E28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBidding.Web", "OnlineBidding.Web\OnlineBidding.Web.csproj", "{6A627340-F9C4-4A7F-A126-5643C196AD7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBidding.Service", "OnlineBidding.Service\OnlineBidding.Service.csproj", "{EE57F3F5-0523-4353-8C32-E3FA1FBD35E7}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53776362-2E7C-448B-8FD1-A2CDCA969C55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53776362-2E7C-448B-8FD1-A2CDCA969C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53776362-2E7C-448B-8FD1-A2CDCA969C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53776362-2E7C-448B-8FD1-A2CDCA969C55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{101A86FA-902D-4CD8-BB5D-C34853A39E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{101A86FA-902D-4CD8-BB5D-C34853A39E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{101A86FA-902D-4CD8-BB5D-C34853A39E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{101A86FA-902D-4CD8-BB5D-C34853A39E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A627340-F9C4-4A7F-A126-5643C196AD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A627340-F9C4-4A7F-A126-5643C196AD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A627340-F9C4-4A7F-A126-5643C196AD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A627340-F9C4-4A7F-A126-5643C196AD7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE57F3F5-0523-4353-8C32-E3FA1FBD35E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE57F3F5-0523-4353-8C32-E3FA1FBD35E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE57F3F5-0523-4353-8C32-E3FA1FBD35E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE57F3F5-0523-4353-8C32-E3FA1FBD35E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

@@ -1,0 +1,33 @@
+﻿@model OnlineBidding.Entity.Auction
+
+
+<h2>Edit</h2>
+
+<form method="post" action="/Auction/Edit">
+    <label>Title</label>
+    <input name="Title" value="@Model.Title"/>
+    <br />
+
+    <label>PictureUrl</label>
+    <input name="PictureUrl" value="@Model.PictureUrl"/>
+    <br />
+
+    <label>Description</label>
+    <input name="Description" value="@Model.Description" />
+    <br />
+
+    <label>ActualAmount</label>
+    <input name="ActualAmount" value="@Model.ActualAmount" />
+    <br />
+
+    <label>StartingTime</label>
+    <input name="StartingTime" value="@Model.StartingTime"/>
+    <br />
+
+    <label>EndingTime</label>
+    <input name="EndingTime" value="@Model.EndingTime" />
+    <br />
+    <input type="hidden" name="ActionId" value="@Model.ActionId" />
+    <input type="submit" value="Save" />
+</form>
+

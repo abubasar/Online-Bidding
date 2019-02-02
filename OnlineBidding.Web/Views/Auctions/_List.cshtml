@@ -1,0 +1,96 @@
+﻿@model OnlineBidding.Web.ViewModels.AuctionsListViewModel
+
+<button class="btn btn-primary" type="button" id="newBtn">Add New Auction</button>
+<table id="list" class="table table-hover">
+    
+    <tr>
+        <th>
+           Title
+        </th>
+        <th>
+           Picture Url
+        </th>
+        <th>
+           Description
+        </th>
+        <th>
+            Actual Amount
+        </th>
+        <th>
+           Starting Time
+        </th>
+        <th>
+         Ending Time
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.AllAuctions)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PictureUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndingTime)
+            </td>
+            <td>
+                <button class="editBtn btn btn-success" data-id="@item.ActionId">Edit</button> |
+                <button class="deleteBtn btn btn-danger" data-id="@item.ActionId">Delete</button> |
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+
+    $('#newBtn').click(function () {
+        $.ajax({
+            url: "/Auctions/Create",
+            method: "Get"
+        }).done(function (response) {
+            $("#auctionForm").html(response);
+
+        });
+
+    });
+
+    $('.editBtn').click(function () {
+        $.ajax({
+            url: "/Auctions/Edit/",
+            method: "Get",
+            data: { id: $(this).attr('data-id') }
+        }).done(function (response) {
+            $("#auctionForm").html(response);
+
+        });
+
+    });
+
+    $('.deleteBtn').click(function () {
+        $.ajax({
+            url: "/Auctions/Delete/",
+            method: "Get",
+            data: { id: $(this).attr('data-id') }
+        }).done(function (response) {
+            $("#tableDiv").html(response);
+
+        });
+
+    });
+
+
+</script>
