@@ -24,6 +24,10 @@ namespace OnlineBidding.Web.Controllers
             viewModel.PageTitle = "Auctions list";
             viewModel.PageDescription = "this is Auctions list Page";
             viewModel.AllAuctions = service.GetAll();
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView(viewModel);
+            }
             return View(viewModel);
         }
 
@@ -36,8 +40,8 @@ namespace OnlineBidding.Web.Controllers
         public ActionResult Details(string id)
         {
             AuctionsViewModel actionsViewModel = new AuctionsViewModel();
-            actionsViewModel.PageTitle = " Auction Details Page";
-            actionsViewModel.PageDescription = "This is Auction Details Page";
+          ViewBag.PageTitle = " Auction Details Page";
+          ViewBag.PageDescription = "This is Auction Details Page";
             var auction = service.GetById(id);
             return View(auction);
         }

@@ -2,8 +2,11 @@
 <div class="row">
 
     <div class="col-lg-12" id="tableDiv">
-        <button class="btn btn-primary" type="button" id="newBtn">Add New Auction</button>
-        <table id="list" class="table table-hover">
+        <div>
+            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#formModal" id="newBtn">Add New Auction</button>
+        </div>
+
+        <table class="table table-hover">
 
             <tr>
                 <th>
@@ -49,7 +52,7 @@
                         @Html.DisplayFor(modelItem => item.EndingTime)
                     </td>
                     <td>
-                        <button class="editBtn btn btn-success" data-id="@item.ActionId">Edit</button> |
+                        <button class="editBtn btn btn-success" data-id="@item.ActionId" data-toggle="modal" data-target="#formModal">Edit</button> |
                         <button class="deleteBtn btn btn-danger" data-id="@item.ActionId">Delete</button> |
                     </td>
                 </tr>
@@ -58,47 +61,68 @@
         </table>
 
 
-        <div id="auctionForm"></div>
+
+        <script>
+
+            $('#newBtn').click(function () {
+                $.ajax({
+                    url:  "@Url.Action("Create","Auctions")",
+                    type: "Get"
+                }).done(function (response) {
+
+                    $("#auctionForm").html(response);
+                   
+                    $("#formModal").modal("toggle");
+                });
+
+            });
+
+            $('.editBtn').click(function () {
+                $.ajax({
+                    url:  "@Url.Action("Edit","Auctions")",
+                    method: "Get",
+                    data: { id: $(this).attr('data-id') }
+                }).done(function (response) {
+                   
+                    $("#auctionForm").html(response);
+                    $("#formModal").modal("toggle");
+                   
+                   
+                });
+
+            });
+
+            $('.deleteBtn').click(function () {
+                var result = confirm('Are You sure to delete this auction?');
+                if (result == true) {
+                    $.ajax({
+                        url: "@Url.Action("Delete","Auctions")",
+                        method: "Get",
+                        data: { id: $(this).attr('data-id') }
+                    }).done(function (response) {
+                       
+                        $("#tableDiv").html(response);
+                     
+                    });
+                }
+               
+
+            });
+
+
+        </script>
+
+
     </div>
 
 
 </div>
-<script>
 
-    $('#newBtn').click(function () {
-        $.ajax({
-            url: "/Auctions/Create",
-            method: "Get"
-        }).done(function (response) {
-            $("#auctionForm").html(response);
+<!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="auctionForm">
 
-        });
-
-    });
-
-    $('.editBtn').click(function () {
-        $.ajax({
-            url: "/Auctions/Edit/",
-            method: "Get",
-            data: { id: $(this).attr('data-id') }
-        }).done(function (response) {
-            $("#auctionForm").html(response);
-
-        });
-
-    });
-
-    $('.deleteBtn').click(function () {
-        $.ajax({
-            url: "/Auctions/Delete/",
-            method: "Get",
-            data: { id: $(this).attr('data-id') }
-        }).done(function (response) {
-            $("#tableDiv").html(response);
-
-        });
-
-    });
-
-
-</script>
+        </div>
+    </div>
+</div>

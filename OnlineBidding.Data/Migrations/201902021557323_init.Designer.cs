@@ -13,7 +13,7 @@ namespace OnlineBidding.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201901310500246_init"; }
+            get { return "201902021557323_init"; }
         }
         
         string IMigrationMetadata.Source

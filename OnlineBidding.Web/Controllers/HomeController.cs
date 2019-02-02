@@ -18,8 +18,8 @@ namespace OnlineBidding.Web.Controllers
         public ActionResult Index()
         {
             AuctionsViewModel actionsViewModel = new AuctionsViewModel();
-            actionsViewModel.PageTitle = "Home Page";
-            actionsViewModel.PageDescription = "This is Home Page";
+            ViewBag.PageTitle = "Home Page";
+            ViewBag.PageDescription = "This is Home Page";
             actionsViewModel.AllAuctions = service.GetAll();
             actionsViewModel.PromotedAuctions = service.GetPromotedAuctions();
 
